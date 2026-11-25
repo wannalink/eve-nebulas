@@ -1,30 +1,33 @@
 # EVE Online Nebula Assets (Web-Optimized)
 
-Web-optimized, DirectXTex-processed cubemap skybox assets derived from public EVE Online game resources for use in community 3D visualization applications (such as [DSuit](https://github.com/wannalink/DSuit)).
+Web-optimized cubemap skybox assets derived from public EVE Online game resources for use in community 3D visualization applications (such as [DSuit](https://github.com/wannalink/DSuit)).
 
 ## Structure
 
-Each nebula is stored as 6 cubemap faces in `.webp` format at 1024×1024 resolution:
-- `px.webp`: Positive X (+X)
-- `nx.webp`: Negative X (-X)
-- `py.webp`: Positive Y (+Y)
-- `ny.webp`: Negative Y (-Y)
-- `pz.webp`: Positive Z (+Z)
-- `nz.webp`: Negative Z (-Z)
+Each of the 75 SDE nebula scenes (`a01_cube`–`a18_cube`, `c01_cube`–`c19_cube`, `g01_cube`–`g11_cube`, `m01_cube`–`m17_cube`, `j01_cube`, `j02_cube`, `y01_cube`, `wormhole_class_00`–`wormhole_class_06`) is stored under `nebulas/{scene_id}/` as:
 
-Processed using Microsoft DirectXTex with HDR tone-mapping, anti-banding dithering, and coordinate un-mirroring for authentic in-game visual representation.
+- **RGB cubemap faces**: `px.webp`, `nx.webp`, `py.webp`, `ny.webp`, `pz.webp`, `nz.webp`
+- **Alpha mask cubemap faces** (for `background.fx` tiled starfield blending): `alpha_px.webp`, `alpha_nx.webp`, `alpha_py.webp`, `alpha_ny.webp`, `alpha_pz.webp`, `alpha_nz.webp`
+
+Shared assets under `nebulas/common/`:
+- `stars01_tile2.webp`: Tiled background starfield texture sampled by the `background.fx` skybox shader.
+
+Legacy non-`_cube` folders (`a01`, `c02`, etc.) remain present for backwards compatibility with older deployments.
 
 ## CDN Usage via jsDelivr
 
 You can access any asset directly via jsDelivr:
 
 ```text
-https://cdn.jsdelivr.net/gh/wannalink/eve-nebulas@main/nebulas/{nebula_id}/{face}.webp
+https://cdn.jsdelivr.net/gh/wannalink/eve-nebulas@main/nebulas/{scene_id}/{face}.webp
+https://cdn.jsdelivr.net/gh/wannalink/eve-nebulas@main/nebulas/{scene_id}/alpha_{face}.webp
+https://cdn.jsdelivr.net/gh/wannalink/eve-nebulas@main/nebulas/common/stars01_tile2.webp
 ```
 
-Example for The Forge (`c02`):
+Example for The Forge (`c02_cube`):
 ```text
-https://cdn.jsdelivr.net/gh/wannalink/eve-nebulas@main/nebulas/c02/px.webp
+https://cdn.jsdelivr.net/gh/wannalink/eve-nebulas@main/nebulas/c02_cube/px.webp
+https://cdn.jsdelivr.net/gh/wannalink/eve-nebulas@main/nebulas/c02_cube/alpha_px.webp
 ```
 
 ---
