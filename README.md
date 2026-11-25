@@ -1,6 +1,6 @@
 # EVE Online Nebula Assets (Web-Optimized)
 
-Web-optimized cubemap skybox assets derived from public EVE Online game resources for use in community 3D visualization applications (such as [DSuit](https://github.com/wannalink/DSuit)).
+Web-optimized cubemap skybox assets derived from public EVE Online game resources.
 
 ## Structure
 
